@@ -3,6 +3,9 @@ from flight_request import FlightRequest
 from flights_repo import FlightsRepo
 import json
 
+from json_encoder import JSONEncoder
+
+
 app = Flask(__name__)
 flightsRepo = FlightsRepo()
 
@@ -12,7 +15,7 @@ def index():
 
 @app.route('/requests', methods = ['GET'])
 def get_flight_requests():
-    return (json.dumps({ "flights": flightsRepo.find_all() }), 
+    return (JSONEncoder().encode({ "flights": flightsRepo.find_all() }), 
         200, 
         {'ContentType': 'application/json'})
 
@@ -21,6 +24,6 @@ def insert_flight_request():
     flightRequest = FlightRequest(request.json.get('name'))
     insertedFlightId = flightsRepo.insert(flightRequest)
 
-    return (json.dumps({ "id": insertedFlightId}), 201, {'ContentType': 'application/json'})
+    return (JSONEncoder().encode({ "id": insertedFlightId}), 201, {'ContentType': 'application/json'})
 
 app.run(debug=True)
