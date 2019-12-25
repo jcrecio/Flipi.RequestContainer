@@ -8,10 +8,8 @@ class FlightsRepo:
         self.flightRequests = database.flightRequests
 
     def insert(self, flightRequest):
-        result = self.flightRequests.insert_one(flightRequest.toJSON())
+        result = self.flightRequests.insert_one(flightRequest)
         return str(result.inserted_id)
 
     def find_all(self):
         return list(self.flightRequests.find({}))
-
-#     def find_one(self):
