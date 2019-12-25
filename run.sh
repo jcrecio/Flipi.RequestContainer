@@ -1,2 +1,1 @@
-mongod -f mongo.conf
-python main.py  
+mongod -f mongo.conf & python main.py  
