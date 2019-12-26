@@ -6,7 +6,7 @@ class FlightsService:
         self.flightsRepo = FlightsRepo()
 
     def find_all(self):
-        return JSONEncoder().encode({ "flights": self.flightsRepo.find_all() })
+        return JSONEncoder().encode(self.flightsRepo.find_all())
 
     def insert(self, flightRequest):
         insertedFlightId = self.flightsRepo.insert(flightRequest)
