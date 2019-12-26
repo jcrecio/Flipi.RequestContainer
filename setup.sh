@@ -7,7 +7,7 @@ sudo apt-get install python-virtualenv
 python3 -m venv vRequestContainer
 
 // Activate the environment
-. vRequestContainer/bin/activate
+source .vRequestContainer/bin/activate
 
 // Install flask
 pip install Flask
