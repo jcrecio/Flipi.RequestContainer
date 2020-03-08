@@ -2,7 +2,7 @@ from pymongo import MongoClient
 
 class FlightsRepo:
     def __init__(self):
-        db_client = MongoClient()
+        db_client = MongoClient("mongodb://localhost:27017/")
         database = db_client.RequestContainer
 
         self.flightRequests = database.flightRequests

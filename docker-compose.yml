@@ -6,8 +6,8 @@ services:
         ports:
         - "5000:5000"
         volumes:
-        - .:/f
+        - .:/app
         links:
         - db
     db:
-        image: mongo:3.0.2
+        image: mongo:latest
