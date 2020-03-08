@@ -6,6 +6,10 @@ python -m pip install virtualenv
 // Create virtual environment
 py -3 -m venv vRequestContainer
 
+ // You need to make sure you have execution policies enabled in powershell
+ // Run as an administrator:
+ Set-ExecutionPolicy RemoteSigned
+
 // Activate the environment
 ./vRequestContainer/Scripts/Activate.ps1
 
