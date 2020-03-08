@@ -6,6 +6,13 @@ To setup the app for the first time, you need to execute setup.ps1 in windows or
 
 In order to run the app you have to:
 
+
+- With docker:
+docker-compose build
+docker-compose up
+
+
+- With virtualven
 - Windows
 1. activate the virtual environment vRequestContainer by
     $ ./vRequestContainer/Scripts/Activate.ps1

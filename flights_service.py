@@ -10,4 +10,4 @@ class FlightsService:
 
     def insert(self, flightRequest):
         insertedFlightId = self.flightsRepo.insert(flightRequest)
-        return JSONEncoder().encode({ "id": insertedFlightId})
+        return JSONEncoder().encode({ "_id": insertedFlightId})

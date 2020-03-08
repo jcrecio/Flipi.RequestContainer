@@ -1,2 +1,2 @@
 start "" mongod -f mongo.conf
-start "" python main.py
+start "" python app.py

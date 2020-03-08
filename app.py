@@ -6,6 +6,10 @@ from json_encoder import JSONEncoder
 app = Flask(__name__)
 flightsService = FlightsService()
 
+@app.route('/', methods = ['GET'])
+def index():
+    return "healthy"
+
 @app.route('/requests', methods = ['GET'])
 def get_flight_requests():
     return (flightsService.find_all(), 200, {'ContentType': 'application/json'})
