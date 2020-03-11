@@ -19,4 +19,5 @@ def insert_flight_request():
     insertedFlightId = flightsService.insert(request.get_json())
     return (insertedFlightId, 201, {'ContentType': 'application/json'})
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=True)

@@ -1,4 +1,4 @@
 FROM python:3
-ADD . /f
-WORKDIR /f
+ADD . /requestcontainer
+WORKDIR /requestcontainer
 RUN pip install -r requirements.txt

@@ -4,10 +4,15 @@ services:
         build: .
         command: flask run --host=0.0.0.0
         ports:
-        - "5000:5000"
+            - "5000:5000"
         volumes:
-        - .:/app
+            - .:/requestcontainer
         links:
-        - db
-    db:
+            - requestcontainerdatabase
+    requestcontainerdatabase:
         image: mongo:latest
+        deploy:
+            restart_policy:
+                condition: always
+        ports:
+            - "27017:27017"

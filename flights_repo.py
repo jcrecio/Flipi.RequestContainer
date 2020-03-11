@@ -2,7 +2,12 @@ from pymongo import MongoClient
 
 class FlightsRepo:
     def __init__(self):
-        db_client = MongoClient("mongodb://localhost:27017/")
+
+        try:
+            db_client = MongoClient("mongodb://requestcontainerdatabase:27017/")
+        except:
+            raise Exception("There was an error connecting to mongodatabase")
+
         database = db_client.RequestContainer
 
         self.flightRequests = database.flightRequests
