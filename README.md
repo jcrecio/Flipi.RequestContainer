@@ -16,6 +16,7 @@ With docker:
 
 
 With virtualven
+To setup the app for the first time, you need to execute setup.ps1 in windows or setup.sh in linux
 
 
 - Windows
