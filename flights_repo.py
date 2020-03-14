@@ -6,7 +6,7 @@ class FlightsRepo:
         try:
             db_client = MongoClient("mongodb://requestcontainerdatabase:27017/")
         except:
-            raise Exception("There was an error connecting to mongodatabase")
+            raise Exception("There was an error connecting to requester container godatabase")
 
         database = db_client.RequestContainer
 
@@ -16,5 +16,10 @@ class FlightsRepo:
         result = self.flightRequests.insert_one(flightRequest)
         return str(result.inserted_id)
 
+    def delete(self, flightRequestId):
+        result = self.flightRequests.delete_one({ "_id": flightRequestId})
+        return str(flightRequestId)
+
     def find_all(self):
-        return list(self.flightRequests.find({}))
+        aggr = [ {'$replaceWith': { 'requestId': '$_id', 'from': '$from', 'to': '$to', 'maxPrice': '$maxPrice' } } ]
+        return list(self.flightRequests.aggregate(aggr))

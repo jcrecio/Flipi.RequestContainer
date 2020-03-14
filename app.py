@@ -19,5 +19,10 @@ def insert_flight_request():
     insertedFlightId = flightsService.insert(request.get_json())
     return (insertedFlightId, 201, {'ContentType': 'application/json'})
 
+@app.route('/requests/<requestId>', methods = ['DELETE'])
+def delete_flight_request(requestId):
+    deletedFlightId = flightsService.delete(requestId)
+    return (deletedFlightId, 204, {'ContentType': 'application/json'})
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)

@@ -2,7 +2,9 @@
 Container that stores all the destinations that need to be fetched to get the flights periodically
 
 <pre>
-To setup the app for the first time, you need to execute setup.ps1 in windows or setup.sh in linux
+For virtualvenv: To setup the app for the first time, you need to execute setup.ps1 in windows or setup.sh in linux
+For docker: No prerequisites
+
 
 In order to run the app you have to:
 

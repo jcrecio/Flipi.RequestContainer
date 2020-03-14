@@ -11,3 +11,7 @@ class FlightsService:
     def insert(self, flightRequest):
         insertedFlightId = self.flightsRepo.insert(flightRequest)
         return JSONEncoder().encode({ "_id": insertedFlightId})
+
+    def delete(self, flightRequestId):
+        deletedFlightId = self.flightsRepo.delete(flightRequestId)
+        return JSONEncoder().encode({ "_id": deletedFlightId})
