@@ -1,12 +1,12 @@
 1. The image for the python flask api needs to be built and pushed into the registry
 docker login
 
-docker build -t jcrecio/flipi-requestcontainer-swarm_webapi:latest -f ./Dockerfile .
-docker push jcrecio/flipi-requestcontainer-swarm_webapi:latest
+docker build -t jcrecio/flipi-requestcontainer:latest -f ./Dockerfile .
+docker push jcrecio/flipi-requestcontainer:latest
 
 
 2. Start the swarm (if not yet)
 docker swarm init
 
 3. Deploy into the swarm:
-docker stack deploy --compose-file docker-compose.yml flipi
+docker stack deploy --compose-file docker-compose.yml requestcontainer
