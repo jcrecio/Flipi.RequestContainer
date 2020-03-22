@@ -1,4 +1,10 @@
-version: "3.3"
+version: "3.5"
+
+networks:
+    flipinet:
+        external:
+            name: flipinet
+
 services:
     web:
         image: "jcrecio/flipi-requestcontainer:latest"
@@ -17,7 +23,3 @@ services:
             - "27017:27017"
         networks:
             - flipinet
-networks:
-    flipinet:
-        external: true
-        name: flipinet
