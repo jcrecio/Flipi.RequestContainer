@@ -6,7 +6,7 @@ services:
         ports:
             - "5000:5000"
         networks:
-            - appnet
+            - flipinet
         volumes:
             - .:/requestcontainer
         links:
@@ -16,7 +16,8 @@ services:
         ports:
             - "27017:27017"
         networks:
-            - appnet
+            - flipinet
 networks:
-    appnet:
-        driver: overlay
+    flipinet:
+        external: true
+        name: flipinet
