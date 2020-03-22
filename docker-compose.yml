@@ -1,7 +1,7 @@
 version: "3.3"
 services:
     web:
-        image: "jcrecio/flask-docker-swarm_web:latest"
+        image: "jcrecio/flipi-requestcontainer-swarm_webapi"
         command: flask run --host=0.0.0.0
         ports:
             - "5000:5000"
