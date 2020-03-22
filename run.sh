@@ -1,1 +1,0 @@
-mongod -f mongo.conf & python app.py  

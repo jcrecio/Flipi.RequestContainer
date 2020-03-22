@@ -1,0 +1,12 @@
+1. The image for the python flask api needs to be built and pushed into the registry
+docker login
+
+docker build -t jcrecio/flask-docker-swarm_web:latest -f ./Dockerfile .
+docker push jcrecio/flask-docker-swarm_web:latest
+
+
+2. Start the swarm (if not yet)
+docker swarm init
+
+3. Deploy into the swarm:
+docker stack deploy --compose-file docker-compose.yml flipi

@@ -1,18 +1,22 @@
 version: "3.3"
 services:
     web:
-        build: .
+        image: "jcrecio/flask-docker-swarm_web:latest"
         command: flask run --host=0.0.0.0
         ports:
             - "5000:5000"
+        networks:
+            - appnet
         volumes:
             - .:/requestcontainer
         links:
             - requestcontainerdatabase
     requestcontainerdatabase:
         image: mongo:latest
-        deploy:
-            restart_policy:
-                condition: always
         ports:
             - "27017:27017"
+        networks:
+            - appnet
+networks:
+    appnet:
+        driver: overlay
