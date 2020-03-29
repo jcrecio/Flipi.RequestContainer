@@ -1,11 +1,11 @@
 version: "3.5"
 
-networks:
-    flipinet:
-        external:
-            name: flipinet
-    requestcontainernet:
-        driver: bridge
+# networks:
+#     flipinet:
+#         external:
+#             name: flipinet
+#     requestcontainernet:
+#         driver: bridge
 
 services:
     web:
@@ -14,15 +14,24 @@ services:
         ports:
             - "5000:5000"
         networks:
-            - flipinet
-            - requestcontainernet
+            - public
+        deploy:
+            mode: replicated
+            replicas: 1
+            endpoint_mode: vip
         volumes:
             - .:/requestcontainer
-        links:
-            - requestcontainerdatabase
     requestcontainerdatabase:
         image: mongo:latest
         ports:
             - "27017:27017"
         networks:
-            - requestcontainernet
+            - public
+        deploy:
+            mode: replicated
+            replicas: 1
+            endpoint_mode: vip
+networks:
+    public:
+        external: 
+            name: public
