@@ -4,6 +4,7 @@ class FlightsRepo:
     def __init__(self):
 
         try:
+            # db_client = MongoClient("mongodb://requestcontainerdatabase:27017/", connectTimeoutMS=1000, socketTimeoutMS=1000)
             db_client = MongoClient("mongodb://requestcontainerdatabase:27017/")
         except:
             raise Exception("There was an error connecting to requester container godatabase")

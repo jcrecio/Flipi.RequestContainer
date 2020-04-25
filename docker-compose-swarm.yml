@@ -1,37 +1,27 @@
 version: "3.5"
 
-# networks:
-#     flipinet:
-#         external:
-#             name: flipinet
-#     requestcontainernet:
-#         driver: bridge
+networks:
+    flipinet:
+      external:
+        name: flipinet
+    internal: 
+        name: internal
 
 services:
     web:
         image: "jcrecio/flipi-requestcontainer:latest"
         command: flask run --host=0.0.0.0
+        networks:
+            - flipinet
+            - internal
         ports:
             - "5000:5000"
-        networks:
-            - public
-        deploy:
-            mode: replicated
-            replicas: 1
-            endpoint_mode: vip
         volumes:
             - .:/requestcontainer
     requestcontainerdatabase:
         image: mongo:latest
+        networks:
+            - flipinet
+            - internal
         ports:
             - "27017:27017"
-        networks:
-            - public
-        deploy:
-            mode: replicated
-            replicas: 1
-            endpoint_mode: vip
-networks:
-    public:
-        external: 
-            name: public
