@@ -11,10 +11,10 @@ docker push jcrecio/flipi-requestcontainer:latest
 2. Start the swarm (if not yet)
 docker swarm init
 
-3. Create flipi network (if not yet)
-docker network create --scope=swarm flipinet
+3. Create overlay network
+docker network create -d overlay overnet
 
-3. Deploy into the swarm:
+4. Deploy into the swarm:
 docker stack deploy --compose-file docker-compose-swarm.yml requestcontainer
 
 ******************************

@@ -1,19 +1,16 @@
 version: "3.5"
 
 networks:
-    flipinet:
-      external:
-        name: flipinet
-    internal: 
-        name: internal
+      overnet:
+        external:
+            name: overnet
 
 services:
     web:
         image: "jcrecio/flipi-requestcontainer:latest"
         command: flask run --host=0.0.0.0
         networks:
-            - flipinet
-            - internal
+            - overnet
         ports:
             - "5000:5000"
         volumes:
@@ -21,7 +18,6 @@ services:
     requestcontainerdatabase:
         image: mongo:latest
         networks:
-            - flipinet
-            - internal
+            - overnet
         ports:
             - "27017:27017"
